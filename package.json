@@ -1,10 +1,15 @@
 {
-  "name": "http-nodejs",
+  "name": "programacion",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
-  "author": "Aiden Bai",
-  "license": "MIT",
   "scripts": {
-    "start": "node server.mjs"
+    "start": "node index.js",
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "playwright": "^1.25.1"
   }
 }
