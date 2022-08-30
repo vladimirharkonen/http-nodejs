@@ -2,9 +2,11 @@
   "name": "programacion",
   "version": "1.0.0",
   "description": "",
+  "author": "Vladimir",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
+    "start": "node server.mjs"
   },
   "keywords": [],
   "author": "",
