@@ -1,3 +1,4 @@
+var http = require("http");
 
 const playwright = require("playwright");
 const websolend = require("./webs/websolend");
@@ -10,12 +11,10 @@ const webaave = require("./webs/webaave");
 const webpolygon = require("./webs/webpolygon");
 const weblido = require("./webs/weblido");
 
-
-const startScrapping = async (response) =>{
-
+const startScrapping = async (response) => {
   const browser = await playwright.chromium.launch();
   const page = await browser.newPage();
-  const values= {};
+  const values = {};
 
   values.websolend = await websolend.getWeb(page);
   values.webport = await webport.getWeb(page);
@@ -30,14 +29,12 @@ const startScrapping = async (response) =>{
   return values;
 };
 
-var http = require("http");
+http
+  .createServer(async function (request, response) {
+    const values = await startScrapping(response);
 
-http.createServer(async function(request, response) {
+    response.writeHead(200, { "Content-Type": "text/plain" });
 
-  const values = await startScrapping(response);
-
-  response.writeHead(200, {'Content-Type': 'text/plain'});
-
-  response.end(JSON.stringify(values));
-
-}).listen(8000);
+    response.end(JSON.stringify(values));
+  })
+  .listen(process.env.PORT);
