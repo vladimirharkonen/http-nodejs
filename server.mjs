@@ -1,9 +1,4 @@
-import { createServer } from 'http';
 
-createServer((req, res) => {
-  res.write('Hello World!');
-  res.end();
-}).listen(process.env.PORT);
 const playwright = require("playwright");
 const websolend = require("./webs/websolend");
 const webport = require("./webs/webport");
